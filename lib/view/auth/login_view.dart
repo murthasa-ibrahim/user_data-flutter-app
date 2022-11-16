@@ -1,7 +1,6 @@
 import 'package:finin_focom/const/constant.dart';
 import 'package:finin_focom/view_model/login_provider.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:provider/provider.dart';
 
 class LoginView extends StatelessWidget {
@@ -45,7 +44,7 @@ class LoginView extends StatelessWidget {
                 kheight,
                 ElevatedButton(
                   onPressed: () {
-                    provider.onSubmit();
+                    provider.onSubmit(context);
                   },
                   child: const Text(
                     "Submit",
