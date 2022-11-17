@@ -1,5 +1,3 @@
-
-
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/cupertino.dart';
 
@@ -12,10 +10,10 @@ class HomeProvider extends ChangeNotifier {
     notifyListeners();
   }
 
-void sort(int type){
-  usersList.sort(sorts[type]);
-  notifyListeners();
-}
+  void sort(int type) {
+    usersList.sort(sorts[type]);
+    notifyListeners();
+  }
 
   List<int Function(UserData, UserData)> sorts = [
     (a, b) => a.name.toLowerCase().compareTo(b.name.toLowerCase()),
@@ -25,23 +23,6 @@ void sort(int type){
 
   List<UserData> usersList = [];
 
-//--------- Firebase -----------//
-
-FirebaseFirestore firestore = FirebaseFirestore.instance;
- final Stream<QuerySnapshot> usersStream = FirebaseFirestore.instance.collection('Users').snapshots();
-//  final  users = FirebaseFirestore.instance.collection('Users');
-  // Future<void> addUser() {
-     
-  //     return users
-  //         .add({
-  //           'name': "mur", 
-  //           'age': '22', 
-  //           'city': 'clt' 
-  //         })
-  //         .then((value) => log("User Added"))
-  //         .catchError((error) => log("Failed to add user: $error"));
-  //   }
-    
-
-
+  final Stream<QuerySnapshot> usersStream =
+      FirebaseFirestore.instance.collection('Users').snapshots();
 }

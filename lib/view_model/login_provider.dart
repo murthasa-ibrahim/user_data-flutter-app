@@ -1,7 +1,5 @@
-import 'dart:developer';
 
 import 'package:finin_focom/view/home/home_view.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class LoginProvider extends ChangeNotifier {

@@ -2,6 +2,8 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:finin_focom/const/constant.dart';
 import 'package:finin_focom/model/user_model.dart';
+import 'package:finin_focom/view/add_new_data/add_new_data.dart';
+import 'package:finin_focom/view_model/add_user_provider.dart';
 import 'package:finin_focom/view_model/home_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -86,9 +88,14 @@ class HomeView extends StatelessWidget {
           )
         ],
       ),
-      // floatingActionButton: FloatingActionButton(
-      //   onPressed: () => provider.addUser()
-      // ),
+      floatingActionButton: FloatingActionButton(
+        backgroundColor: Colors.amber,
+        child: const Icon(Icons.add),
+        onPressed: (){
+          context.read<AddUserProvider>().clearFeild();
+          Navigator.of(context).push(MaterialPageRoute(builder: (context) => const AddNewUser(),));
+        }
+      ),
     );
   }
 }
@@ -122,33 +129,3 @@ class MyPopupMenu extends StatelessWidget {
 }
 
 
-// class MyPopupMenu extends StatelessWidget {
-//   const MyPopupMenu({Key? key}) : super(key: key);
-
-//   @override
-//   Widget build(BuildContext context) {
-//     final provider = context.read<HomeProvider>();
-//     return PopupMenuButton<String>(
-//       onSelected: (item) {
-//         provider.addToSelectedMenu(item);
-//       },
-//       itemBuilder: (BuildContext context) => <PopupMenuEntry<String>>[
-//         PopupMenuItem(
-//           onTap: () => provider.sortByName(),
-//           value: 'Sort By name',
-//           child: const Text('Sort By name'),
-//         ),
-//          PopupMenuItem(
-//            onTap: () => provider.sortByAge(),
-//           value: 'Sort By Age',
-//           child: const Text('Sort By Age'),
-//         ),
-//          PopupMenuItem(
-//            onTap: () => provider.sortByName(),
-//           value: 'Sort By City',
-//           child: const Text('Sort By City'),
-//         ),
-//       ],
-//     );
-//   }
-// }

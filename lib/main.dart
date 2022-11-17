@@ -1,4 +1,5 @@
 import 'package:finin_focom/view/splash/splash.dart';
+import 'package:finin_focom/view_model/add_user_provider.dart';
 import 'package:finin_focom/view_model/home_provider.dart';
 import 'package:finin_focom/view_model/login_provider.dart';
 import 'package:firebase_core/firebase_core.dart';
@@ -18,7 +19,8 @@ class MyApp extends StatelessWidget {
     return MultiProvider(
       providers: [
        ChangeNotifierProvider<LoginProvider>(create: (context) => LoginProvider(),),
-       ChangeNotifierProvider<HomeProvider>(create: (context) => HomeProvider(),)  
+       ChangeNotifierProvider<HomeProvider>(create: (context) => HomeProvider(),),
+       ChangeNotifierProvider<AddUserProvider>(create: (context) => AddUserProvider(),)   
       ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,

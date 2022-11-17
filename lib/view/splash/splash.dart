@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'package:finin_focom/view/auth/login_view.dart';
 import 'package:finin_focom/view/home/home_view.dart';
 import 'package:flutter/material.dart';
 
@@ -15,7 +16,7 @@ class _SplashState extends State<Splash> {
     Timer(
         const Duration(seconds: 2),
         () => Navigator.of(context).pushReplacement(MaterialPageRoute(
-              builder: (context) => const HomeView(),
+              builder: (context) => const LoginView(),
             )));
     super.initState();
   }
